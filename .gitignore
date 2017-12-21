@@ -60,3 +60,6 @@ typings/
 
 # for mac
 .DS_Store
+
+# config
+config.json

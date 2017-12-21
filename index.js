@@ -1,8 +1,14 @@
+use strict;
+
 const IMAP = require('imap');
-let that = this;
+const fs = require('fs');
+let username, password;
+
+({username, password} = JSON.parse(fs.readFileSync('./config.json', 'utf-8')));
+
 let imap = new IMAP({
-  user: '',
-  password: '',
+  user: username,
+  password: password,
   host: 'imap.gmail.com',
   port: 993,
   tls: true
@@ -14,8 +20,7 @@ function expunge() {
   imap.openBox('[Gmail]/Trash', false, () => {
     imap.addFlags('1:*',['Deleted'], () => {
       imap.expunge();
-      console.log(new Date(Date.now()),'expunged');
-      setTimeout(expunge.bind(that), 30000);
+      setTimeout(expunge, 30000);
     });
   });
 };
