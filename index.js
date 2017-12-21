@@ -1,4 +1,4 @@
-use strict;
+"use strict";
 
 const IMAP = require('imap');
 const fs = require('fs');
