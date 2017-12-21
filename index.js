@@ -4,7 +4,7 @@ const IMAP = require('imap');
 const fs = require('fs');
 let username, password;
 
-/*({username, password} = JSON.parse(fs.readFileSync(__dirname+'/config.json', 'utf-8')));
+({username, password} = JSON.parse(fs.readFileSync(__dirname+'/config.json', 'utf-8')));
 
 let imap = new IMAP({
   user: username,
@@ -26,6 +26,4 @@ function expunge() {
 };
 
 
-imap.connect();*/
-
-setTimeout(()=> console.log(1) ,100);
+imap.connect();
